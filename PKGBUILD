@@ -13,9 +13,8 @@ source=("https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-$pkgver.tar.xz"
         "https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-$pkgver.tar.sign")
 sha256sums=('a340eb15d20bb8cd69361804e6e3e3b5c55b7cd9f66ab14724ff0f2a7bf370c4'
             'SKIP')
-validpgpkeys=('ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
-              '647F28654894E3BD457199BE38DBBDC86092693E' # Greg Kroah-Hartman
-             )
+validpgpkeys=('ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
+              '647F28654894E3BD457199BE38DBBDC86092693E') # Greg Kroah-Hartman
 
 
 _moduleSrc="linux-$pkgver/drivers/net/wireless/intel/iwlwifi"
