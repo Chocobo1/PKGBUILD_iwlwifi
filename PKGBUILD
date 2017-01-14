@@ -1,7 +1,7 @@
 # Maintainer: Chocobo1
 
 pkgname=iwlwifi
-pkgver=r0.g70f46c143
+pkgver=r2327.g9cd70e80f7f0
 pkgrel=1
 pkgdesc="Wireless driver for Intel's current wireless chips (git tag)"
 arch=('i686' 'x86_64')
@@ -20,12 +20,13 @@ _moduleSrc="iwlwifi-fixes/drivers/net/wireless/intel/iwlwifi"
 prepare() {
   cd "$srcdir"
   if [ ! -d "$_moduleSrc" ]; then
-    git clone --depth=50 "https://git.kernel.org/pub/scm/linux/kernel/git/iwlwifi/iwlwifi-fixes.git"
+    git clone "https://git.kernel.org/pub/scm/linux/kernel/git/iwlwifi/iwlwifi-fixes.git"  # --depth=50
   fi
 
   cd "$_moduleSrc"
-  last_good="75cfe338b8a6fadaa28879a969047554701a7589"
-  current_good="tags/iwlwifi-for-kalle-2017-01-13"
+  git co master
+  git pull
+  current_good="9cd70e80f7f0df1d6d13d8aeb50a16bf40e2962c"  # "tags/iwlwifi-for-kalle-2017-01-13"
   git checkout "$current_good"
 }
 
