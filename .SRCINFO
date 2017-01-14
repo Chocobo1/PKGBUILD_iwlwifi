@@ -1,6 +1,6 @@
 pkgbase = iwlwifi
-	pkgdesc = Wireless driver for Intel's current wireless chips (Kernel stable)
-	pkgver = 4.8.10
+	pkgdesc = Wireless driver for Intel's current wireless chips (git tag)
+	pkgver = r0.g70f46c143
 	pkgrel = 1
 	url = https://wireless.wiki.kernel.org/en/users/drivers/iwlwifi
 	install = iwlwifi.install
@@ -8,12 +8,6 @@ pkgbase = iwlwifi
 	arch = x86_64
 	license = GPL
 	makedepends = linux-headers
-	source = https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.8.10.tar.xz
-	source = https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.8.10.tar.sign
-	validpgpkeys = ABAF11C65A2970B130ABE3C479BE3E4300411886
-	validpgpkeys = 647F28654894E3BD457199BE38DBBDC86092693E
-	sha256sums = a340eb15d20bb8cd69361804e6e3e3b5c55b7cd9f66ab14724ff0f2a7bf370c4
-	sha256sums = SKIP
 
 pkgname = iwlwifi
 
