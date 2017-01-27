@@ -1,7 +1,7 @@
 # Maintainer: Chocobo1
 
 pkgname=iwlwifi
-pkgver=r0.g70f46c1438bf
+pkgver=r0.g03c902bff524
 pkgrel=1
 pkgdesc="Wireless driver for Intel's current wireless chips (git tag)"
 arch=('i686' 'x86_64')
@@ -26,7 +26,7 @@ prepare() {
   cd "$_moduleSrc"
   git co master
   git pull
-  git checkout "70f46c1438bf8342578d2b34e465ab352ccae357"
+  git checkout "tags/iwlwifi-for-kalle-2017-01-23"
 
   git revert --no-commit "7948b87308a489c2caa23574ea3c72298288c374"  # dynamic queue allocation (DQA) is not ready for production use
 }
