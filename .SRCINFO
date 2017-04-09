@@ -1,13 +1,15 @@
 pkgbase = iwlwifi
 	pkgdesc = Wireless driver for Intel's current wireless chips (git tag)
-	pkgver = r0.g03c902bff524
+	pkgver = 03c902bff
 	pkgrel = 1
+	epoch = 1
 	url = https://wireless.wiki.kernel.org/en/users/drivers/iwlwifi
 	install = iwlwifi.install
 	arch = i686
 	arch = x86_64
 	license = GPL
 	makedepends = linux-headers
+	makedepends = curl
 
 pkgname = iwlwifi
 

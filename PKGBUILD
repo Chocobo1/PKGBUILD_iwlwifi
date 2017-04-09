@@ -1,13 +1,14 @@
 # Maintainer: Chocobo1
 
 pkgname=iwlwifi
-pkgver=r0.g03c902bff524
+pkgver=03c902bff
 pkgrel=1
+epoch=1
 pkgdesc="Wireless driver for Intel's current wireless chips (git tag)"
 arch=('i686' 'x86_64')
 url="https://wireless.wiki.kernel.org/en/users/drivers/iwlwifi"
 license=('GPL')
-makedepends=('linux-headers')
+makedepends=('linux-headers' 'curl')
 install=$pkgname.install
 #source=('git+https://git.kernel.org/pub/scm/linux/kernel/git/iwlwifi/iwlwifi-fixes.git#commit=70f46c1438bf8342578d2b34e465ab352ccae357')
 #sha256sums=('SKIP')
@@ -19,21 +20,21 @@ _moduleSrc="iwlwifi-fixes/drivers/net/wireless/intel/iwlwifi"
 
 prepare() {
   cd "$srcdir"
-  if [ ! -d "$_moduleSrc" ]; then
-    git clone "https://git.kernel.org/pub/scm/linux/kernel/git/iwlwifi/iwlwifi-fixes.git"  # --depth=50
+  if [ ! -d "iwlwifi-fixes" ]; then
+    git clone "https://kernel.googlesource.com/pub/scm/linux/kernel/git/iwlwifi/iwlwifi-fixes.git" --depth=1 --no-checkout
   fi
 
-  cd "$_moduleSrc"
-  git co master
-  git pull
-  git checkout "tags/iwlwifi-for-kalle-2017-01-23"
+  cd "$srcdir/iwlwifi-fixes"
+  git fetch origin "tags/iwlwifi-for-kalle-2017-01-23" --depth 1
+  git reset --hard "FETCH_HEAD"
 
-  git revert --no-commit "7948b87308a489c2caa23574ea3c72298288c374"  # dynamic queue allocation (DQA) is not ready for production use
+  # dynamic queue allocation (DQA) is not ready for production use
+  curl -s "https://git.kernel.org/pub/scm/linux/kernel/git/iwlwifi/iwlwifi-fixes.git/patch/?id=7948b87308a489c2caa23574ea3c72298288c374" | git apply - --reverse
 }
 
 pkgver() {
   cd "$srcdir/$_moduleSrc"
-  git describe --long --tags | sed 's/.*-\([^-]*-[^-]*$\)/r\1/;s/-/./g'
+  git describe --long --tags --always | sed 's/.*-\([^-]*-[^-]*$\)/r\1/;s/-/./g'
 }
 
 build() {
