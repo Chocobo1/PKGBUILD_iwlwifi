@@ -1,9 +1,9 @@
 # Maintainer: Chocobo1
 
 pkgname=iwlwifi
-pkgver=r0.g5f90472c
+pkgver=r0.g44fd09da
 pkgrel=1
-epoch=1
+epoch=2
 pkgdesc="Wireless driver for Intel's current wireless chips (git tag)"
 arch=('i686' 'x86_64')
 url="https://wireless.wiki.kernel.org/en/users/drivers/iwlwifi"
@@ -25,7 +25,7 @@ prepare() {
   fi
 
   cd "$srcdir/iwlwifi-fixes"
-  git fetch origin "tags/iwlwifi-for-kalle-2017-09-15" --depth 1
+  git fetch origin "tags/iwlwifi-for-kalle-2017-10-06" --depth 1
   git reset --hard "FETCH_HEAD"
 
   # dynamic queue allocation (DQA) is not ready for production use
