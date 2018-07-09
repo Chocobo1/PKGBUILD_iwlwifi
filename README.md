@@ -5,3 +5,5 @@ Not satisfied with upstream quality, running as a wifi station always crash or f
 so I decided to maintain it (selecting patches) myself.
 
 Upstream website: https://wireless.wiki.kernel.org/en/users/drivers/iwlwifi
+
+### Find the PKGBUILD at: https://aur.archlinux.org/packages/iwlwifi/ <br/> and https://aur.archlinux.org/packages/iwlwifi-next/
